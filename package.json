@@ -21,13 +21,15 @@
     "angular": "~1.4.8",
     "angular-animate": "~1.4.8",
     "angular-aria": "~1.4.8",
+    "angular-google-maps": "^2.3.3",
     "angular-material": "^1.0.0",
+    "angular-pubsub": "^0.2.0",
+    "angular-simple-logger": "^0.1.7",
     "angular-ui-router": "^0.2.14",
-    "font-awesome": "^4.3.0"
+    "font-awesome": "^4.3.0",
+    "mobile-angular-ui": "^1.2.1"
   },
-
   "homepage": "https://github.com/vadimivanov/demo-app#readme",
-
   "devDependencies": {
     "autoprefixer-loader": "^2.0.0",
     "babel-core": "^5.2.9",

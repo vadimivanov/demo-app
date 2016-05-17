@@ -1,10 +1,6 @@
 routing.$inject = ['$stateProvider', '$urlRouterProvider'];
 
 function routing($stateProvider, $urlRouterProvider) {
-    //$locationProvider.html5Mode({
-    //    enabled: true,
-    //    requireBase: false
-    //});
     $urlRouterProvider.otherwise('/');
     console.log('routing test');
 
@@ -14,9 +10,24 @@ function routing($stateProvider, $urlRouterProvider) {
         })
 
         .state('home', {
-            url: '/',
-            template: '<home-directive></home-directive>'
-            //template: 'dfgsxfgfgsdfgsdgsdfgsdgsdfg'
+            // url: '/',
+            template: '<header-directive></header-directive>'
+        })
+        .state('search', {
+            url: '/search',
+            template: '<search-directive></search-directive>'
+        })
+        .state('result', {
+            url: '/result',
+            template: '<result-directive></result-directive>'
+        })
+        .state('details', {
+            url: '/details',
+            template: '<details-directive></details-directive>'
+        })
+        .state('favorites', {
+            url: '/favorites',
+            template: '<favorits-directive></favorits-directive>'
         });
 }
 

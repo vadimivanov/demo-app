@@ -3,10 +3,17 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Demo app</title>
-    <!--<link rel="stylesheet" href="assets/css/bundle.css"/>-->
+    <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhtRBpTkfh0H2ODmwBpwHMx_Z77_EqI5M" type="text/javascript"></script>-->
 </head>
 <body ng-app="rxExperiment">
     <script type="text/javascript" src="bundle.js"></script>
-    <ui-view></ui-view>
+    <div layout='column' layout-fill>
+        <md-toolbar class='md-medium-tall'>
+            <header-directive></header-directive>
+        </md-toolbar>
+        <md-content flex class='md-padding'>
+            <ui-view></ui-view>
+        </md-content>
+    </div>
 </body>
 </html>
