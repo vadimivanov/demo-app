@@ -7,6 +7,7 @@ class ResultDirective {
         this.scope = {};
         let _state;
         let _dataService;
+        let _PubSub;
 
         this.link = function ($scope) {
             console.log('ResultDirective', $scope);
@@ -24,14 +25,17 @@ class ResultDirective {
             $scope.changeState = function(state){
                 _state.go(state);
             };
+            $scope.routState = _state.current.name;
+            _PubSub.publish('routState', $scope.routState);
 
         };
-        this.controller = ['$scope', '$state', 'dataService',  ($scope, $state, dataService) => {
+        this.controller = ['$scope', '$state', 'dataService', 'PubSub',  ($scope, $state, dataService, PubSub) => {
             _state = $state;
             _dataService = dataService;
+            _PubSub = PubSub;
         }];
     }
 }
 
-ResultDirective.$inject = ['$scope', '$state', 'dataService'];
+ResultDirective.$inject = ['$scope', '$state', 'dataService', 'PubSub'];
 export default ResultDirective;

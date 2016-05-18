@@ -6,20 +6,25 @@ class HeaderDirective {
         this.restrict = 'E';
         this.scope = {};
         let _dataService;
+        let _PubSub;
 
         this.link = function ($scope) {
             $scope.render = function () {
                 $scope.title = _dataService.getRouteState();
-                console.log('---HeaderDirective-$scope.title--', $scope.title);
             };
-            $scope.render();
+            var routState = function (newGreeting, oldGreeting) {
+                $scope.title = newGreeting;
+            };
+            var uid = _PubSub.subscribe('routState', routState);
+                console.log('---HeaderDirective-$scope.title--', uid);
         };
-        this.controller = ['$scope', '$state', 'dataService',  ($scope, $state, dataService) => {
-            console.log('HeaderDirective-controller', $state);
+        this.controller = ['$scope', '$state', 'dataService', 'PubSub',  ($scope, $state, dataService, PubSub) => {
+            console.log('HeaderDirective-controller', $state,PubSub);
             _dataService = dataService;
+            _PubSub = PubSub;
         }];
     }
 }
 
-HeaderDirective.$inject = ['$scope', '$state', 'dataService'];
+HeaderDirective.$inject = ['$scope', '$state', 'dataService', 'PubSub'];
 export default HeaderDirective;

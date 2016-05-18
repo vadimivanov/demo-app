@@ -3,28 +3,29 @@ import uirouter from 'angular-ui-router';
 
 import routing from './routing.js';
 
-// Material design css
+// lib modules
 import 'angular-material/angular-material.css';
-// Icons
 import 'font-awesome/css/font-awesome.css';
-// Animation
 import angularAnimate from 'angular-animate';
-// Materail Design lib
 import angularMaterial from 'angular-material';
 
+// services
 import DataService from './services/dataService.js';
 
+// directives
 import HeaderDirective from './screens/header/header.directive';
 import SearchDirective from './screens/search/search.directive';
 import ResultDirective from './screens/result/result.directive';
 import DetailsDirective from './screens/details/details.directive';
 import FavoritesDirective from './screens/favorits/favorits.directive';
 
+
 angular.module('rxExperiment', [
         angularMaterial,
         angularAnimate,
         uirouter
     ])
+    .provider('PubSub', require('angular-pubsub'))
     .service('dataService', DataService)
     .directive('headerDirective', () => new HeaderDirective)
     .directive('searchDirective', () => new SearchDirective)

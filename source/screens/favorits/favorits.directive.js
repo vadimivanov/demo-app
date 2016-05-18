@@ -5,7 +5,9 @@ class FavoritesDirective {
         this.template = templateFavorites;
         this.restrict = 'E';
         this.scope = {};
+        let _state;
         let _dataService;
+        let _PubSub;
 
         this.link = function ($scope) {
             console.log('FavoritesDirective', $scope);
@@ -20,13 +22,17 @@ class FavoritesDirective {
                     notes: "It's favorites."
                 });
             }
+            $scope.routState = _state.current.name;
+            _PubSub.publish('routState', $scope.routState);
         };
-        this.controller = ['$scope', '$state', 'dataService', ($scope, $state, dataService) => {
+        this.controller = ['$scope', '$state', 'dataService', 'PubSub', ($scope, $state, dataService, PubSub) => {
             console.log('FavoritesDirective-controller', $scope, $state);
+            _state = $state;
             _dataService = dataService;
+            _PubSub = PubSub;
         }];
     }
 }
 
-FavoritesDirective.$inject = ['$scope', '$state', 'dataService'];
+FavoritesDirective.$inject = ['$scope', '$state', 'dataService', 'PubSub'];
 export default FavoritesDirective;

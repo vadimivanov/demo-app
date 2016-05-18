@@ -7,22 +7,24 @@ class SearchDirective {
         this.scope = {};
         let _state;
         let _dataService;
+        let _PubSub;
 
         this.link = function ($scope) {
             
             $scope.changeState = function(state){
                 _state.go(state);
             };
-            _dataService.setRouteState(_state.current.name);
-
+            $scope.routState = _state.current.name;
+            _PubSub.publish('routState', $scope.routState);
         };
-        this.controller = ['$scope', '$state', 'dataService', ($scope, $state, dataService) => {
+        this.controller = ['$scope', '$state', 'dataService','PubSub', ($scope, $state, dataService, PubSub) => {
             _state = $state;
             _dataService = dataService;
+            _PubSub = PubSub;
             console.log('SearchDirective', $state,_state.current.name);
         }];
     }
 }
 
-SearchDirective.$inject = ['$scope', '$state', 'dataService'];
+SearchDirective.$inject = ['$scope', '$state', 'dataService', 'PubSub'];
 export default SearchDirective;
