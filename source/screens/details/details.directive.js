@@ -14,11 +14,16 @@ class DetailsDirective {
             $scope.changeState = function(state){
                 _state.go(state);
             };
+            $scope.saveFavoritesData = function(){
+                $scope.favoritesData = [{name: 'Leeds', adress: 'Street 20'}];
+                _dataService.setStorage($scope.favoritesData, 'favoritesData');
+                console.log('SearchDirective--$scope.searchData');
+            };
+            $scope.saveFavoritesData();
             $scope.routState = _state.current.name;
             _PubSub.publish('routState', $scope.routState);
         };
         this.controller = ['$scope', '$state', 'dataService', 'PubSub', ($scope, $state, dataService, PubSub) => {
-            console.log('DetailsDirective', $scope);
             _state = $state;
             _dataService = dataService;
             _PubSub = PubSub;

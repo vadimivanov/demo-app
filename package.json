@@ -27,7 +27,8 @@
     "angular-simple-logger": "^0.1.7",
     "angular-ui-router": "^0.2.14",
     "font-awesome": "^4.3.0",
-    "mobile-angular-ui": "^1.2.1"
+    "mobile-angular-ui": "^1.2.1",
+    "ng-cache-loader": "0.0.15"
   },
   "homepage": "https://github.com/vadimivanov/demo-app#readme",
   "devDependencies": {

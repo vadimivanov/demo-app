@@ -10,18 +10,12 @@ class FavoritesDirective {
         let _PubSub;
 
         this.link = function ($scope) {
-            console.log('FavoritesDirective', $scope);
+            $scope.loadFavoritesData = function() {
+                $scope.favoritesData = _dataService.getStorage('favoritesData');
+                console.log('favoritesData', $scope.favoritesData);
+            };
+            $scope.loadFavoritesData();
             var imagePath = 'https://material.angularjs.org/latest/img/list/60.jpeg';
-            $scope.todos = [];
-            $scope.title = 'Toolbar';
-            for (var i = 0; i < 5; i++) {
-                $scope.todos.push({
-                    face: imagePath,
-                    what: "Property",
-                    who: "Min Li Chan",
-                    notes: "It's favorites."
-                });
-            }
             $scope.routState = _state.current.name;
             _PubSub.publish('routState', $scope.routState);
         };

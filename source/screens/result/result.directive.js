@@ -10,7 +10,6 @@ class ResultDirective {
         let _PubSub;
 
         this.link = function ($scope) {
-            console.log('ResultDirective', $scope);
             var imagePath = 'https://material.angularjs.org/latest/img/list/60.jpeg';
             $scope.todos = [];
             $scope.title = 'Toolbar';
@@ -27,7 +26,7 @@ class ResultDirective {
             };
             $scope.routState = _state.current.name;
             _PubSub.publish('routState', $scope.routState);
-
+            $scope.searchResults = _dataService.getData();
         };
         this.controller = ['$scope', '$state', 'dataService', 'PubSub',  ($scope, $state, dataService, PubSub) => {
             _state = $state;

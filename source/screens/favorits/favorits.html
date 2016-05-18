@@ -1,11 +1,11 @@
 <md-list>
-    <md-list-item class="md-3-line" ng-repeat="item in todos">
+    <md-list-item class="md-3-line" ng-repeat="item in favoritesData">
         <img ng-src="{{item.face}}" alt="{{item.who}}" class="md-avatar">
         <div class="md-list-item-text">
-            <h3>{{item.what}}</h3>
-            <h4>{{item.who}}</h4>
+            <h3>{{item.name}}</h3>
+            <h4>{{item.adress}}</h4>
             <p>
-                {{item.notes}}
+                note
             </p>
         </div>
         <md-divider inset></md-divider>

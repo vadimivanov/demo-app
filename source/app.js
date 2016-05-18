@@ -11,6 +11,7 @@ import angularMaterial from 'angular-material';
 
 // services
 import DataService from './services/dataService.js';
+import StorageService from './services/storageService.js';
 
 // directives
 import HeaderDirective from './screens/header/header.directive';
@@ -27,11 +28,16 @@ angular.module('rxExperiment', [
     ])
     .provider('PubSub', require('angular-pubsub'))
     .service('dataService', DataService)
+    .service('storageService', StorageService)
     .directive('headerDirective', () => new HeaderDirective)
     .directive('searchDirective', () => new SearchDirective)
     .directive('resultDirective', () => new ResultDirective)
     .directive('detailsDirective', () => new DetailsDirective)
     .directive('favoritsDirective', () => new FavoritesDirective)
-    .config(routing);
+    .config(routing)
+    .constant('CONFIG', {
+        URL: "http://api.nestoria.co.uk/api?country=uk&pretty=1&action=search_listings&encoding=json&listing_type=buy&page=1&place_name=leeds",
+        HEADER: {}
+    });
 
 console.log('load');
