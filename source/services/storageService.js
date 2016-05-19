@@ -6,7 +6,12 @@ class StorageService {
                 // localStorage.removeItem(storageName);
                 var load = localStorage.getItem(storageName);
                 var parseLoad = JSON.parse(load);
-                parseLoad.push(arr[0]);
+                if (parseLoad.length >= 5) {
+                    parseLoad.pop();
+                    parseLoad.push(arr[0]);
+                } else {
+                    parseLoad.push(arr[0]);
+                }
                 localStorage.setItem(storageName, JSON.stringify(parseLoad));
             } else {
                 localStorage.setItem(storageName, JSON.stringify(arr));

@@ -1,7 +1,17 @@
 <!--<md-sidenav flex=20></md-sidenav>-->
 <div class="md-toolbar-tools">
-    <span>{{title}}</span>
-    <span flex></span>
+    <div class="md-toolbar-tools">
+        <md-button aria-label="Go Back" ng-click="goBack()" ng-if="title != 'search'">
+            Go Back
+        </md-button>
+        <h2>
+            <span>{{title}}</span>
+        </h2>
+        <span flex></span>
+        <md-button class="md-raised" aria-label="Favorite" ng-click="goToFavorite()" ng-if="title != 'favorites'">
+            Favorite
+        </md-button>
+    </div>
 </div>
 
 <!---->

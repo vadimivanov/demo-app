@@ -5,19 +5,21 @@ class DataService {
         this.preventDate = new Date();
         this.storageService = storageService;
         this.locationResponse = [];
+        this.detailsData = [];
         this.CONFIG = CONFIG;
         this.$http = $http;
-        console.log('DataService---', storageService);
+        this.CONFIG.URL = "http://api.nestoria.co.uk/api?country=uk&pretty=1&action=search_listings&encoding=json&listing_type=buy&"
+        this.search = function(data) {
+            
+            var options = {
+                method: 'GET',
+                url: this.CONFIG.URL + 'page=' + data.page + '&place_name='+ data.name,
+                dataType: 'json'
+            };
+            return $http(options);
+        }
     }
 
-    search (data) {
-        var options = {
-            method: 'GET',
-            url: this.CONFIG.URL,
-            dataType: 'json'
-        };
-        return this.$http(options);
-    };
 
     getStorage (storageName) {
         return this.storageService.loadData(storageName);
@@ -31,6 +33,12 @@ class DataService {
     }
     setData (locationResponse) {
         this.locationResponse = locationResponse;
+    }
+    getDetails () {
+        return  this.detailsData;
+    }
+    setDetails (details) {
+        this.detailsData = details;
     }
 
 }

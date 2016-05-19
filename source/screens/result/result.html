@@ -1,12 +1,12 @@
 <md-list>
-    <md-list-item class="md-3-line" ng-repeat="item in todos" ng-click="changeState('details')">
-        <img ng-src="{{item.face}}" alt="{{item.who}}" class="md-avatar">
+    <md-list-item class="md-3-line" ng-repeat="item in searchResults" ng-click="getItem($index)">
+        <img ng-src="{{item.img_url}}" alt="{{item.lister_name}}" class="md-avatar">
         <div class="md-list-item-text">
-            <h3>{{item.what}}</h3>
-            <h4>{{item.who}}</h4>
-            <p>
-                {{item.notes}}
-            </p>
+            <h3>{{item.title}}</h3>
+            <h4>Price: {{item.price_formatted}}</h4>
+            <!--<p>-->
+                <!--{{item.summary}}-->
+            <!--</p>-->
         </div>
         <md-divider inset></md-divider>
     </md-list-item>

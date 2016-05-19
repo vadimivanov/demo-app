@@ -1,13 +1,17 @@
 <md-card>
+    <img ng-src="{{detailsInfo.img_url}}" class="md-card-image" alt="Washed Out">
     <md-card-title>
-        <md-card-title-text ng-click="changeState('favorites')">
-            <span class="md-headline">Card with  image</span>
-            <span class="md-subhead">Extra Large</span>
+        <md-card-title-text>
+            <span class="md-headline">{{detailsInfo.title}}</span>
         </md-card-title-text>
     </md-card-title>
-    <md-card-content layout="row" layout-align="space-between">
-        <div class="md-media-xl card-media"></div>
-        <md-card-actions layout="column">
-        </md-card-actions>
+    <md-card-content>
+        <p>
+            {{detailsInfo.summary}}
+        </p>
     </md-card-content>
+    <md-card-actions layout="row" layout-align="end center">
+        <md-button class="md-fab md-mini" aria-label="Favorite" ng-click="saveFavoritesData()">+</md-button>
+        <!--<md-button ng-click="saveFavoritesData()">To favorites</md-button>-->
+    </md-card-actions>
 </md-card>

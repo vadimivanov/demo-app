@@ -1,12 +1,9 @@
 <md-list>
-    <md-list-item class="md-3-line" ng-repeat="item in favoritesData">
-        <img ng-src="{{item.face}}" alt="{{item.who}}" class="md-avatar">
+    <md-list-item class="md-3-line" ng-repeat="item in favoritesData" ng-click="getItem($index)">
+        <img ng-src="{{item.img_url}}" alt="{{item.lister_name}}" class="md-avatar">
         <div class="md-list-item-text">
-            <h3>{{item.name}}</h3>
-            <h4>{{item.adress}}</h4>
-            <p>
-                note
-            </p>
+            <h3>{{item.title}}</h3>
+            <h4>Price: {{item.price_formatted}}</h4>
         </div>
         <md-divider inset></md-divider>
     </md-list-item>

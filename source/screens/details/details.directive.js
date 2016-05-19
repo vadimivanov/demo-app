@@ -11,16 +11,17 @@ class DetailsDirective {
 
         this.link = function ($scope) {
 
-            $scope.changeState = function(state){
-                _state.go(state);
+            $scope.saveFavoritesData = function () {
+                $scope.favoritesArr = [{
+                    title: $scope.detailsInfo.title,
+                    img_url: $scope.detailsInfo.img_url,
+                    lister_name: $scope.detailsInfo.lister_name,
+                    price_formatted: $scope.detailsInfo.price_formatted
+                }];
+                _dataService.setStorage($scope.favoritesArr, 'favoritesData');
             };
-            $scope.saveFavoritesData = function(){
-                $scope.favoritesData = [{name: 'Leeds', adress: 'Street 20'}];
-                _dataService.setStorage($scope.favoritesData, 'favoritesData');
-                console.log('SearchDirective--$scope.searchData');
-            };
-            $scope.saveFavoritesData();
             $scope.routState = _state.current.name;
+            $scope.detailsInfo =  _dataService.getDetails();
             _PubSub.publish('routState', $scope.routState);
         };
         this.controller = ['$scope', '$state', 'dataService', 'PubSub', ($scope, $state, dataService, PubSub) => {

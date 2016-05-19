@@ -10,23 +10,47 @@ class SearchDirective {
         let _PubSub;
 
         this.link = function ($scope) {
-            $scope.changeState = function(state){
+            $scope.isSpinner = false;
+            $scope.isHistory = false;
+            $scope.searchOptions = {
+                name: '',
+                page: 1
+            };
+            $scope.searchByHistory = function(location){
+                $scope.searchOptions.name = location;
+                $scope.isHistory = true;
                 $scope.getSearchData();
-                _state.go(state);
             };
             $scope.getSearchData = function(state){
-                // $scope.searchData = _dataService.search();
-                _dataService.setData($scope.searchResults);
+                $scope.isSpinner = true;
+                _dataService.search($scope.searchOptions).then(function successCallback(response) {
+                    $scope.searchData = response.data.response.listings;
+                    _dataService.setData($scope.searchData);
+                    if (!$scope.isHistory) {
+                        $scope.saveSearchResults(response.data.response);
+                    }
+                    $scope.isSpinner = false;
+                    _state.go('result');
+                }, function errorCallback(err) {
+                    $scope.isSpinner = false;
+                    console.log('errorCallback', err);
+                });
             };
-            $scope.saveSearchResults = function(){
-                $scope.searchResults = [{name: 'Leeds', length: 20}];
+            $scope.saveSearchResults = function(results){
+                $scope.searchResults = [{
+                    title: results.locations[0].title,
+                    length: results.total_results
+                }];
                 _dataService.setStorage($scope.searchResults, 'searchResults');
-                console.log('SearchDirective--$scope.searchData');
+                
             };
-            $scope.saveSearchResults();
+            
             $scope.routState = _state.current.name;
             _PubSub.publish('routState', $scope.routState);
-
+            $scope.render = function () {
+                $scope.searchHistory = _dataService.getStorage('searchResults');
+            };
+            $scope.render();
         };
         this.controller = ['$scope', '$state', 'dataService','PubSub', ($scope, $state, dataService, PubSub) => {
             _state = $state;

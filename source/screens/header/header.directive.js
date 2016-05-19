@@ -5,21 +5,29 @@ class HeaderDirective {
         this.template = templateHeader;
         this.restrict = 'E';
         this.scope = {};
+        let _state;
         let _dataService;
         let _PubSub;
 
         this.link = function ($scope) {
-            $scope.render = function () {
-                $scope.title = _dataService.getRouteState();
+            $scope.backRout = {
+                result: 'search',
+                details: 'result',
+                favorites: 'search'
             };
             var routState = function (newGreeting, oldGreeting) {
                 $scope.title = newGreeting;
             };
-            var uid = _PubSub.subscribe('routState', routState);
-                console.log('---HeaderDirective-$scope.title--', uid);
+            $scope.goBack = function () {
+                _state.go($scope.backRout[$scope.title]);
+            };
+            $scope.goToFavorite = function () {
+                _state.go('favorites');
+            };
+            _PubSub.subscribe('routState', routState);
         };
         this.controller = ['$scope', '$state', 'dataService', 'PubSub',  ($scope, $state, dataService, PubSub) => {
-            console.log('HeaderDirective-controller', $state,PubSub);
+            _state = $state;
             _dataService = dataService;
             _PubSub = PubSub;
         }];
