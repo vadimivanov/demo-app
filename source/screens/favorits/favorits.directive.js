@@ -14,9 +14,11 @@ class FavoritesDirective {
                 _dataService.setDetails($scope.searchResults[index]);
                 _state.go('details');
             };
+            
             $scope.loadFavoritesData = function() {
                 $scope.favoritesData = _dataService.getStorage('favoritesData');
             };
+            
             $scope.loadFavoritesData();
             $scope.routState = _state.current.name;
             _PubSub.publish('routState', $scope.routState);

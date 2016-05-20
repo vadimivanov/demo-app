@@ -1,17 +1,24 @@
-<md-input-container md-theme="input" flex="" class="md-input-theme">
-    <md-progress-linear md-mode="indeterminate" ng-if="isSpinner"></md-progress-linear>
-    <label for="input_001">&nbsp;</label>
-    <input class="ng-pristine ng-valid md-input ng-touched" tabindex="0" id="input_001" aria-invalid="false" type="text" ng-model="searchOptions.name">
-    <div class="md-placeholder">enter search</div>
+
+<div class="md-toolbar-tools">
+<md-input-container md-theme="input" flex="90" class="md-input-theme">
+    <input required ng-model="searchOptions.name" type="text" placeholder="Search">
+    <div ng-if="isError">
+        <div ng-message="required">
+
+        </div>
+    </div>
 </md-input-container>
-<button class="md-button md-default-theme"  aria-label="Search" ng-click="" tabindex="0">
-    <ng-md-icon icon="search" class="ng-scope" ng-click="getSearchData('result')"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></ng-md-icon>
-    <div class="md-ripple-container">
-    </div></button>
-        <md-list ng-if="searchHistory">
-            <md-list-item class="md-1-line" ng-repeat="item in searchHistory" ng-click="searchByHistory(item.title)">
-                <div class="md-list-item-text">
-                    <h3>{{item.title}} {{item.length}}</h3>
-                </div>
-            </md-list-item>
-        </md-list>
+    <button class="md-button" flex="5" aria-label="Search" ng-click="" tabindex="0">
+        <ng-md-icon icon="search" class="ng-scope" ng-click="getSearchData('result')"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></ng-md-icon>
+    </button>
+</div>
+<div class="md-padding flex">
+<h3>Search history:</h3>
+</div>
+<md-list ng-if="searchHistory">
+    <md-list-item class="md-1-line" ng-repeat="item in searchHistory" ng-click="searchByHistory(item.title)">
+        <div class="md-list-item-text">
+            <h3>{{item.title}} {{item.length}}</h3>
+        </div>
+    </md-list-item>
+</md-list>

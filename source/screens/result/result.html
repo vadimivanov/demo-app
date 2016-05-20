@@ -1,13 +1,15 @@
 <md-list>
-    <md-list-item class="md-3-line" ng-repeat="item in searchResults" ng-click="getItem($index)">
+    <md-list-item class="md-2-line" ng-repeat="item in searchResults" ng-click="getItem($index)">
         <img ng-src="{{item.img_url}}" alt="{{item.lister_name}}" class="md-avatar">
         <div class="md-list-item-text">
             <h3>{{item.title}}</h3>
             <h4>Price: {{item.price_formatted}}</h4>
-            <!--<p>-->
-                <!--{{item.summary}}-->
-            <!--</p>-->
         </div>
         <md-divider inset></md-divider>
     </md-list-item>
+    <md-item layout class="inset" ng-click="loadMore()">
+        <md-button layout layout-align="start center" flex class="md-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>Load More
+        </md-button>
+    </md-item>
 </md-list>

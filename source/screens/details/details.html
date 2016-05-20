@@ -1,13 +1,17 @@
 <md-card>
-    <img ng-src="{{detailsInfo.img_url}}" class="md-card-image" alt="Washed Out">
     <md-card-title>
         <md-card-title-text>
+            <span class="md-headline">{{detailsInfo.price_formatted}}</span>
             <span class="md-headline">{{detailsInfo.title}}</span>
         </md-card-title-text>
     </md-card-title>
+    <img ng-src="{{detailsInfo.img_url}}" class="md-card-image" alt="Washed Out">
     <md-card-content>
         <p>
             {{detailsInfo.summary}}
+        </p>
+        <p>
+            bathroom: {{detailsInfo.bathroom_number}}, bedroom: {{detailsInfo.bedroom_number}}
         </p>
     </md-card-content>
     <md-card-actions layout="row" layout-align="end center">

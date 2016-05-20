@@ -10,7 +10,6 @@ class DetailsDirective {
         let _PubSub;
 
         this.link = function ($scope) {
-
             $scope.saveFavoritesData = function () {
                 $scope.favoritesArr = [{
                     title: $scope.detailsInfo.title,
@@ -20,6 +19,7 @@ class DetailsDirective {
                 }];
                 _dataService.setStorage($scope.favoritesArr, 'favoritesData');
             };
+            
             $scope.routState = _state.current.name;
             $scope.detailsInfo =  _dataService.getDetails();
             _PubSub.publish('routState', $scope.routState);

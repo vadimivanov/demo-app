@@ -19,6 +19,7 @@ import SearchDirective from './screens/search/search.directive';
 import ResultDirective from './screens/result/result.directive';
 import DetailsDirective from './screens/details/details.directive';
 import FavoritesDirective from './screens/favorits/favorits.directive';
+import SpinnerDirective from './screens/spinner/spinner.directive';
 
 
 angular.module('rxExperiment', [
@@ -34,6 +35,7 @@ angular.module('rxExperiment', [
     .directive('resultDirective', () => new ResultDirective)
     .directive('detailsDirective', () => new DetailsDirective)
     .directive('favoritsDirective', () => new FavoritesDirective)
+    .directive('spinnerDirective', () => new SpinnerDirective)
     .config(routing)
     .constant('CONFIG', {
         URL: "",
