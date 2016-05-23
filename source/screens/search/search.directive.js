@@ -8,6 +8,7 @@ class SearchDirective {
         let _state;
         let _dataService;
         let _PubSub;
+        let _mdToast;
 
         this.link = function ($scope) {
             $scope.isHistory = false;
@@ -30,21 +31,28 @@ class SearchDirective {
                 _dataService.setLocation($scope.searchOptions.name);
             };
 
+            $scope.errorMsg = function (msg) {
+                $scope.isError = true;
+                $scope.errorText = msg;
+            };
+
             $scope.routState = _state.current.name;
             _PubSub.publish('routState', $scope.routState);
-
+            _PubSub.subscribe('errorMsg', $scope.errorMsg);
+            
             $scope.render = function () {
                 $scope.searchHistory = _dataService.getStorage('searchResults');
             };
             $scope.render();
         };
-        this.controller = ['$scope', '$state', 'dataService','PubSub', ($scope, $state, dataService, PubSub) => {
+        this.controller = ['$scope', '$state', 'dataService','PubSub', '$mdToast', ($scope, $state, dataService, PubSub, $mdToast) => {
             _state = $state;
             _dataService = dataService;
             _PubSub = PubSub;
+            _mdToast = $mdToast;
         }];
     }
 }
 
-SearchDirective.$inject = ['$scope', '$state', 'dataService', 'PubSub'];
+SearchDirective.$inject = ['$scope', '$state', 'dataService', 'PubSub', '$mdToast'];
 export default SearchDirective;

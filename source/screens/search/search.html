@@ -4,7 +4,7 @@
     <input required ng-model="searchOptions.name" type="text" placeholder="Search">
     <div ng-if="isError">
         <div ng-message="required">
-
+            {{errorText}}
         </div>
     </div>
 </md-input-container>

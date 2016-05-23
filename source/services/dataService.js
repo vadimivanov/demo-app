@@ -21,10 +21,13 @@ class DataService {
             };
 
             $http(options).then(function successCallback(response) {
-                // console.log('errorMsg', $scope.errorMsgs[response.data.response.application_response_code]);
-                var dd = response.data.response.listings;
-                for (var i = 0; i < dd.length; i++) {
-                    self.responseData.push(dd[i]);                    
+                var responseData = response.data.response.listings;
+                if (!responseData || responseData.length <= 0) {
+                    PubSub.publish('errorMsg', response.data.response.application_response_text);
+                    PubSub.publish('spinner', false);
+                }
+                for (var i = 0; i < responseData.length; i++) {
+                    self.responseData.push(responseData[i]);                    
                 }
                 
                 self.setData(self.responseData);
@@ -33,11 +36,12 @@ class DataService {
                         title: results.locations[0].title,
                         length: results.total_results
                     }];
+                    self.setStorage(searchResults, 'searchResults');
+                };
+                
                 if (!data.isHistory) {
                     saveSearchResults(response.data.response);
                 }
-                    self.setStorage(searchResults, 'searchResults');
-                };
 
                 PubSub.publish('spinner', false);
                 $state.go('result');
@@ -56,7 +60,10 @@ class DataService {
         return this.storageService.loadData(storageName);
     }
     setStorage (arr, storageName) {
-        this.storageService.saveData(arr, storageName)
+        this.storageService.saveData(arr, storageName);
+    }
+    removeStorage (storageName) {
+        this.storageService.removeData(storageName);
     }
     getLocation () {
         return  this.location;

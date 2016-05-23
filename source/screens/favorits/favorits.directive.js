@@ -10,15 +10,22 @@ class FavoritesDirective {
         let _PubSub;
 
         this.link = function ($scope) {
-            $scope.getItem = function(index){
-                _dataService.setDetails($scope.searchResults[index]);
+            $scope.getItem = function (index) {
+                _dataService.setDetails($scope.favoritesData[index]);
                 _state.go('details');
             };
             
-            $scope.loadFavoritesData = function() {
+            $scope.loadFavoritesData = function () {
                 $scope.favoritesData = _dataService.getStorage('favoritesData');
             };
-            
+
+            $scope.removeItem = function(index) {
+                $scope.favoritesData.splice(index, 1);
+                _dataService.removeStorage('favoritesData');
+                _dataService.setStorage($scope.favoritesData, 'favoritesData');
+                $scope.loadFavoritesData();
+            };
+
             $scope.loadFavoritesData();
             $scope.routState = _state.current.name;
             _PubSub.publish('routState', $scope.routState);

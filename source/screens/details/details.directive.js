@@ -15,7 +15,8 @@ class DetailsDirective {
                     title: $scope.detailsInfo.title,
                     img_url: $scope.detailsInfo.img_url,
                     lister_name: $scope.detailsInfo.lister_name,
-                    price_formatted: $scope.detailsInfo.price_formatted
+                    price_formatted: $scope.detailsInfo.price_formatted,
+                    summary: $scope.detailsInfo.summary
                 }];
                 _dataService.setStorage($scope.favoritesArr, 'favoritesData');
             };

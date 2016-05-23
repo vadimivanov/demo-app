@@ -5,6 +5,10 @@
             <h3>{{item.title}}</h3>
             <h4>Price: {{item.price_formatted}}</h4>
         </div>
+        <md-button class="md-accent" ng-click="removeItem($index)">delete</md-button>
         <md-divider inset></md-divider>
+    </md-list-item>
+    <md-list-item ng-if="!favoritesData.length">
+        <h3>No items in favorites.</h3>
     </md-list-item>
 </md-list>
