@@ -1,0 +1,1474 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+@font-face {
+  font-family: 'Lato Regular';
+  src: url("../font/font/Lato-Regular.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: 'Lato Bold';
+  src: url("../font/font/Lato-Bold.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: 'Lato Black';
+  src: url("../font/font/Lato-Black.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'icomoon';
+  src: url("../font/icon/icomoon.ttf") format('truetype');
+}
+
+.icon {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon--add-expenses::before {
+  content: "\e901";
+}
+
+.icon--add-revenue::before {
+  content: "\e902";
+}
+
+.icon--arrow-left::before {
+  content: "\e903";
+}
+
+.icon--arrow-right::before {
+  content: "\e904";
+}
+
+.icon--total-balance::before {
+  content: "\e905";
+}
+
+.icon--total-expenses::before {
+  content: "\e900";
+}
+
+.icon--total-revenue::before {
+  content: "\e906";
+}
+
+.icon--close::before {
+  content: "\e907";
+}
+
+.icon--add::before {
+  content: "\e908";
+}
+
+.icon--chart::before {
+  content: "\e909";
+}
+
+.icon--more::before {
+  content: "\e90a";
+}
+
+.icon--back::before {
+  content: "\e90b";
+}
+
+.icon--caret {
+  border-style: solid;
+  border-width: 7px 3px 0 3px;
+  border-color: white transparent transparent transparent;
+}
+html,
+body {
+  height: 100%;
+}
+
+.page {
+  box-sizing: border-box;
+  min-height: 100%;
+  background: url("../img/bg2x.png") 0 0 no-repeat;
+  background-size: cover;
+}
+
+.page--home,
+.page--chart {
+  /*  for Android 4.3*/
+  display: -webkit-box;
+  display: box;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+  /*  ===============*/
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+
+.page--home {
+  height: 100%;
+}
+.s-fa {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.s-cta {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+.s-cvta {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.s-cvtr {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.btn {
+  padding: 0;
+  background: none;
+  border: none;
+  text-decoration: none;
+}
+
+.btn-group__switch {
+  display: none;
+}
+
+.btn-group__btn--1of2 {
+  width: 50%;
+}
+
+.btn-group__btn--1of3 {
+  width: 33.33%;
+}
+
+.btn-group__btn {
+  float: left;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  padding: 10px;
+  font: 14px "Lato Regular", sans-serif;
+  text-transform: capitalize;
+  color: white;
+  text-align: center;
+}
+
+.btn-group__switch--1:checked + .btn-group__btn--1,
+.btn-group__switch--2:checked + .btn-group__btn--2,
+.btn-group__switch--3:checked + .btn-group__btn--3 {
+  background: rgba(255,255,255,0.3);
+  border-color: rgba(255,255,255,0.6);
+}
+
+.btn-group__btn--slide {
+  position: relative;
+  width: 54px;
+  height: 24px;
+  padding: 0;
+  background: rgba(255,255,255,0.2);
+}
+
+.btn-group__btn--slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  background: white;
+  -webkit-transition: left 0.2s;
+  transition: left 0.2s;
+}
+
+.btn-group__switch--4:checked + .btn-group__btn--slide::before {
+  left: 50%;
+}
+
+/*--== MODIFIERS ==--*/
+
+/*Datepicker*/
+
+.btn--datepicker-arrow {
+  padding: 4px;
+}
+
+.btn--datepicker-arrow-left {
+  left: 10px;
+}
+
+.btn--datepicker-arrow-right {
+  right: 10px;
+}
+
+.btn--datepicker-arrow .icon {
+  font-size: 30px;
+  color: white;
+}
+
+/*Home. Add buttons*/
+
+.btn-hold--add {
+  padding: 0 2px;
+  -webkit-flex-shrink: 0;
+  flex-shrink: 0;
+}
+
+.btn--add {
+  box-sizing: border-box;
+  float: left;
+  width: 50%;
+  height: 66px;
+  border: 2px solid transparent;
+}
+
+.btn--add:active {
+  border-color: rgba(200,194,184,0.54);
+  background: rgba(0,0,0,0.1);
+}
+
+.btn--add .btn__content {
+  font: 13px "Lato Regular", sans-serif;
+  color: white;
+  text-transform: capitalize;
+  text-shadow: 0 0 8px rgba(1,18,30,0.7);
+  text-align: center;
+}
+
+.btn--add .icon {
+  font-size: 32px;
+  margin-right: 4%;
+  vertical-align: -9px;
+}
+
+/*Round button.*/
+
+.btn--round {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  right: 30px;
+  bottom: 40px;
+  background: #1d5953;
+}
+
+.btn--round .icon {
+  font-size: 40px;
+  color: white;
+}
+
+/*Add expenses. Form.*/
+
+.btn--submit {
+  width: 100%;
+  padding: 15px;
+  background: #1d5953;
+  font: 14px "Lato Regular", sans-serif;
+  text-transform: uppercase;
+  color: white;
+}
+.datepicker {
+  position: relative;
+  padding: 20px 55px;
+  text-align: center;
+}
+
+.datepicker__date {
+  font: 16px "Lato Regular", sans-serif;
+  color: #bedddb;
+  text-shadow: 0 0 8px rgba(1,18,20,0.7);
+}
+
+.datepicker__money {
+  font: 22px "Lato Bold", sans-serif;
+  color: white;
+  text-shadow: 0 0 8px rgba(1,18,20,0.7);
+}
+
+/*--== MODIFIERS ==--*/
+
+.datepicker--without-money .datepicker__money {
+  display: none;
+}
+.nav {
+  padding: 10px 60px;
+  position: relative;
+  text-align: center;
+}
+
+.nav__control--back {
+  left: 10px;
+}
+
+.nav__control--chart {
+  right: 10px;
+}
+
+.nav__control--more {
+  right: 0;
+}
+
+.nav__control .icon {
+  font-size: 30px;
+  color: white;
+}
+
+.nav__title {
+  display: inline-block;
+  font: 16px "Lato Regular", sans-serif;
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.nav__title .icon {
+  right: 0;
+}
+
+.nav__title--link {
+  position: relative;
+  padding-right: 15px;
+}
+
+/*--== MODIFIERS ==--*/
+
+/*Expenses by date, by category*/
+
+.nav--more-controls {
+  padding: 10px 70px;
+}
+
+.nav--more-controls .nav__control--chart {
+  right: 40px;
+}
+
+/*Expenses by category. Expenses charts*/
+
+@media (max-width: 420px) {
+  .nav--more-controls .nav__title {
+    width: 105px;
+  }
+
+  .nav--chart-expenses .nav__title {
+    width: 135px;
+  }
+}
+.tiles {
+  padding: 8px 12px;
+}
+
+.tile {
+  margin: 8px 0;
+  position: relative;
+  border-radius: 2px;
+}
+
+.tile__content {
+  /*  for Android 4.3*/
+  display: -webkit-box;
+  display: box;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+  /*=================*/
+  box-sizing: border-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+
+.tile__name .icon {
+  margin-right: 6px;
+  vertical-align: -4px;
+}
+
+.tile__value {
+  margin: 5px 0;
+  font-family: "Lato Bold", sans-serif;
+  color: white;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.tile__diff {
+  font: 14px "Lato Regular", sans-serif;
+  text-transform: capitalize;
+  text-align: right;
+}
+
+.tile__diff-number {
+  margin-left: 10px;
+  font: 14px "Lato Bold", sans-serif;
+}
+
+.tile__control {
+  position: absolute;
+  top: 8px;
+  right: 0px;
+  padding: 0;
+}
+
+.tile__control .icon {
+  font-size: 30px;
+  color: white;
+  text-shadow: 0 0 16px rgba(76,64,0,0.77);
+}
+
+.tile__label {
+  padding-right: 20px;
+  font: 12px "Lato Regular", sans-serif;
+  text-transform: uppercase;
+  color: white;
+}
+
+.tile__limit {
+  /*  for Android 4.3*/
+  display: -webkit-box;
+  display: box;
+  -webkit-box-flex: 1;
+  box-flex: 1;
+  -webkit-box-align: center;
+  box-align: center;
+  -webkit-box-pack: justify;
+  box-pack: justify;
+  /*=================*/
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.tile__unit {
+  display: block;
+  font: 12px "Lato Regular", sans-serif;
+  color: white;
+}
+
+/*--== MODIFIERS ==--*/
+
+/*Home.*/
+
+.tiles--home {
+  /*  for Android 4.3*/
+  -webkit-box-flex: 1;
+  box-flex: 1;
+  /*=================*/
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  overflow-y: auto;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-overflow-scrolling: touch;
+}
+
+.tile--home .tile__content {
+  /*  for Android 4.3*/
+  -webkit-box-pack: justify;
+  box-pack: justify;
+  /*=================*/
+  height: 128px;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  padding: 15px 15px 15px 30px;
+}
+
+.tile--home .tile__name {
+  padding-right: 25px;
+  font: 12px "Lato Black", sans-serif;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+/*Home. Tile balance*/
+
+.tile--balance {
+  background: #2ca69d;
+  box-shadow: 0 0 16px rgba(0,44,75,0.8), inset 0 0 1px #42b8a9;
+}
+
+.tile--balance .tile__content {
+  height: 144px;
+}
+
+.tile--balance .tile__name {
+  color: #a6fff4;
+}
+
+.tile--balance .tile__value {
+  font-size: 36px;
+  text-shadow: 0 0 16px rgba(7,100,93,0.49);
+}
+
+.tile--balance .icon--total-balance {
+  font-size: 24px;
+}
+
+.tile--balance .tile__diff {
+  color: #115c54;
+}
+
+.tile--balance .tile__diff-number {
+  color: #0b5047;
+}
+
+/*Home. Tile revenue*/
+
+.tile--revenue {
+  background: #3cb980;
+  box-shadow: 0 0 16px rgba(0,55,34,0.8), inset 0 0 1px #4dde9c;
+}
+
+.tile--revenue .tile__name {
+  color: #8bffca;
+}
+
+.tile--revenue .tile__value {
+  font-size: 32px;
+  text-shadow: 0 0 16px rgba(7,117,43,0.49);
+}
+
+.tile--revenue .icon--total-revenue {
+  font-size: 20px;
+}
+
+.tile--revenue .tile__diff {
+  color: #005e3e;
+}
+
+/*Home. Tile expenses*/
+
+.tile--expenses {
+  background: #c5b24c;
+  box-shadow: 0 0 16px rgba(80,59,1,0.8), inset 0 0 1px #e0cb5a;
+}
+
+.tile--expenses .tile__name {
+  color: #ffef9a;
+}
+
+.tile--expenses .tile__value {
+  font-size: 32px;
+  text-shadow: 0 0 16px rgba(115,92,1,0.52);
+}
+
+.tile--expenses .icon--total-expenses {
+  font-size: 20px;
+}
+
+.tile--expenses .tile__diff {
+  color: #695a11;
+}
+
+.tile--expenses .tile__diff-number {
+  color: #695911;
+}
+
+/*Plan your expenses*/
+
+.tile--plan .tile__content {
+  height: 100px;
+  padding: 15px 40px 15px 15px;
+}
+
+.tile--plan .tile__name {
+  font: 20px "Lato Regular", sans-serif;
+  text-transform: capitalize;
+  color: white;
+}
+
+.tile--plan .tile__value {
+  margin: 0;
+  font: 16px "Lato Bold", sans-serif;
+  text-align: right;
+  color: white;
+}
+
+/*Plan your expenses. Total limit.*/
+
+.tile--total-limit {
+  background: #2ca69d;
+  /*TODO: clarify*/
+  box-shadow: 0 0 16px rgba(0,44,75,0.8), inset 0 0 1px #42b8a9;
+  /*TODO: clarify*/
+}
+
+.tile--total-limit .tile__content {
+  height: 80px;
+}
+
+/*Plan your expenses. Total shopping.*/
+
+.tile--total-shopping {
+  background: #3cb980;
+  /*TODO: clarify*/
+  box-shadow: 0 0 16px rgba(0,55,34,0.8), inset 0 0 1px #4dde9c;
+  /*TODO: clarify*/
+}
+
+/*Plan your expenses. Total petrol.*/
+
+.tile--total-petrol {
+  background: #c5b24c;
+  /*TODO: clarify*/
+  box-shadow: 0 0 16px rgba(80,59,1,0.8), inset 0 0 1px #e0cb5a;
+  /*TODO: clarify*/
+}
+.table-hold {
+  padding: 20px 10px;
+}
+
+.table {
+  width: 100%;
+}
+
+.table__body {
+  display: block;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.table__row {
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  display: table;
+  width: 100%;
+}
+
+.table__row--head,
+.table__row--notification {
+  border: none;
+}
+
+.table__body .table__row {
+  display: table;
+  width: 100%;
+}
+
+.table__title,
+.table__data {
+  padding: 10px 0;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.table__title {
+  font: 14px "Lato Regular", sans-serif;
+  color: white;
+  text-transform: uppercase;
+}
+
+.table__data {
+  font: 14px "Lato Regular",sans-serif;
+  color: white;
+}
+
+.table__title--3,
+.table__data--3 {
+  text-align: right;
+}
+
+.table__title--1,
+.table__data--1 {
+  width: 65px;
+}
+
+.table__data--3 {
+  font: 14px "Lato Bold",sans-serif;
+}
+
+.table__data--4 {
+  width: 30px;
+  text-align: center;
+}
+
+.table__control {
+  position: relative;
+  top: 1px;
+}
+
+.table__control .icon {
+  font-size: 24px;
+  color: white;
+}
+
+.table__data--notification {
+  background: #1D5953;
+  text-align: center;
+}
+
+.table__notification-title {
+  font: 14px "Lato Regular",sans-serif;
+  text-transform: uppercase;
+  color: red;
+}
+
+.table__notification-text {
+  font: 14px "Lato Regular",sans-serif;
+  color: white;
+}
+
+.table__limit {
+  font: 14px "Lato Regular",sans-serif;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+
+/*--== MODIFIERS ==--*/
+
+/*Table some*/
+
+.table--some .table__data--1 {
+  padding: 0;
+}
+.form {
+  padding: 20px;
+}
+
+.form__group {
+  margin-bottom: 30px;
+}
+
+.form__title {
+  margin-bottom: 10px;
+  font: 14px "Lato Regular", sans-serif;
+  text-transform: uppercase;
+  color: white;
+}
+
+.form__label {
+  font: 18px "Lato Regular", sans-serif;
+  color: white;
+}
+
+.form__input {
+  box-sizing: border-box;
+  height: 40px;
+  width: 100%;
+  padding: 10px 20px;
+  border: none;
+  background: rgba(0,0,0,0.1);
+  font: 14px "Lato Regular", sans-serif;
+  color: white;
+}
+
+.form__input::-webkit-outer-spin-button {
+  margin: 0;
+}
+
+.form__input::-webkit-input-placeholder {
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+
+.form__input::-moz-placeholder {
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+
+.form__msg {
+  margin-top: 5px;
+  font: 14px "Lato Regular", sans-serif;
+  color: darkred;
+}
+
+/*--== MODIFIERS ==--*/
+
+/*Settings*/
+
+.form__group--notifications {
+  /*  for Android 4.3*/
+  display: -webkit-box;
+  display: box;
+  -webkit-box-pack: justify;
+  box-pack: justify;
+  -webkit-box-align: center;
+  box-align: center;
+  /*  ===============*/
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  align-items: center;
+  padding: 10px 5px 10px 20px;
+  margin-bottom: 4px;
+}
+
+/*Limit by category*/
+
+.form__group--select {
+  position: relative;
+}
+
+.form__group--select::before {
+  content: "";
+  position: absolute;
+  border-style: solid solid none solid;
+  border-width: 6px;
+  border-color: white transparent transparent transparent;
+  right: 15px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.form__group--select .form__input {
+  -webkit-appearance: none;
+  appearance: none;
+  padding-right: 40px;
+}
+.menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  visibility: hidden;
+  -webkit-transition: visibility 0.3s;
+  transition: visibility 0.3s;
+}
+
+.menu--open {
+  visibility: visible;
+  -webkit-transition: visibility 0s;
+  transition: visibility 0s;
+}
+
+.menu__overlay {
+  background: rgba(0,0,0,0.8);
+}
+
+.menu__list {
+  top: auto;
+  padding: 20px;
+  background: #1D5953;
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+.menu--open .menu__list {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.menu__point + .menu__point {
+  margin-top: 25px;
+}
+
+/*--== MODIFIERS ==--*/
+.mark-text__mark {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.mark-text__text {
+  font: 16px "Lato Regular",sans-serif;
+  color: white;
+  vertical-align: middle;
+}
+
+.mark-text--orange .mark-text__mark {
+  background: orange;
+}
+
+.mark-text--blue .mark-text__mark {
+  background: blue;
+}
+
+.mark-text--red .mark-text__mark {
+  background: red;
+}
+
+.mark-text--green .mark-text__mark {
+  background: green;
+}
+
+.mark-text--grey .mark-text__mark {
+  background: grey;
+}
+
+.mark-text--yellow .mark-text__mark {
+  background: yellow;
+}
+
+/*--== MODIFIERS ==--*/
+
+/*Menu*/
+
+.mark-text--menu {
+  display: block;
+  padding: 15px 0;
+  text-decoration: none;
+}
+
+.mark-text--menu .mark-text__text {
+  text-transform: uppercase;
+}
+
+/*Table some*/
+
+.mark-text--notext .mark-text__mark {
+  height: 34px;
+  width: 34px;
+}
+
+/*Legend*/
+
+.mark-text--legend {
+  padding: 5px 0;
+}
+
+.mark-text--legend .mark-text__text {
+  text-transform: uppercase;
+}
+.infographic {
+  /*  for Android 4.3*/
+  display: -webkit-box;
+  display: box;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-box-flex: 1;
+  box-flex: 1;
+  /*  ===============*/
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+}
+
+.chart {
+  /*  for Android 4.3*/
+  display: -webkit-box;
+  display: box;
+  -webkit-box-flex: 1;
+  box-flex: 1;
+  /*  ===============*/
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+}
+
+.chart__pie {
+  width: 500px;
+  height: 500px;
+  margin: auto;
+  /*background: url(../img/PieChart.png) center no-repeat;*/
+  /*background-size: auto 100%;*/
+}
+
+.chart__cols {
+  width: 300px;
+  height: 400px;
+  margin: auto;
+  background: url("../img/column-chart.png") 0 center no-repeat;
+  background-size: auto 100%;
+}
+
+.legend {
+  /*  for Android 4.3*/
+  display: -webkit-box;
+  display: box;
+  /*  ===============*/
+  display: flex;
+  height: 120px;
+  overflow-y: auto;
+}
+
+.legend__column {
+  box-sizing: border-box;
+  width: 50%;
+  padding-left: 30px;
+}
+.h-dn {
+  display: none;
+}
+
+.h-oh {
+  overflow: hidden;
+}
+/*datepicker a, [datepicker] a, .datepicker a{*/
+
+/*color:inherit;*/
+
+/*text-decoration:none;*/
+
+/*}*/
+
+/*datepicker a:hover, [datepicker] a:hover, .datepicker a:hover{*/
+
+/*text-decoration:none;*/
+
+/*}*/
+
+/*datepicker select, datepicker select:focus, datepicker select:hover,*/
+
+/*.datepicker select, .datepicker select:focus, .datepicker select:hover,*/
+
+/*[datepicker] select, [datepicker] select:focus, [datepicker] select:hover{*/
+
+/*width:100%;*/
+
+/*overflow: hidden;*/
+
+/*background:none;*/
+
+/*color:#fff;*/
+
+/*background-color: #138EFA;*/
+
+/*border-radius:2px;*/
+
+/*border: 0;*/
+
+/*margin-top:5px;*/
+
+/*}*/
+
+/*datepicker, .datepicker, [datepicker],*/
+
+._720kb-datepicker-calendar-header,
+._720kb-datepicker-calendar-body,
+._720kb-datepicker-calendar-days-header,
+._720kb-datepicker-calendar-years-pagination-pages {
+  font-family: Helvetica Neue;
+  font-size: 13.5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 220px;
+  margin: 0 auto;
+  float: left;
+  clear: right;
+  position: relative;
+}
+
+._720kb-datepicker-calendar {
+  background: #42b8a9;
+  color: #333;
+  position: absolute;
+  z-index: 999;
+  min-width: 220px;
+  margin: 0 auto;
+  width: 220px;
+  -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
+  visibility: hidden;
+  overflow: hidden;
+  margin-left: -0.5%;
+  padding: 0 0 2% 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+._720kb-datepicker-calendar._720kb-datepicker-open {
+  visibility: visible;
+}
+
+._720kb-datepicker-calendar-header {
+  text-align: center;
+  font-size: 15px;
+  line-height: 40px;
+}
+
+._720kb-datepicker-calendar-header:nth-child(odd) {
+  background: #115c54;
+}
+
+._720kb-datepicker-calendar-header:nth-child(even) {
+  background: #7BC6FC;
+}
+
+._720kb-datepicker-calendar-header-left,
+._720kb-datepicker-calendar-header-middle,
+._720kb-datepicker-calendar-header-right {
+  width: 15%;
+  float: left;
+  color: #e0e0e0;
+}
+
+._720kb-datepicker-calendar-header-middle {
+  width: 70%;
+}
+
+._720kb-datepicker-calendar-header-closed-pagination::after {
+  content: " \25BE";
+}
+
+._720kb-datepicker-calendar-header-opened-pagination::after {
+  content: " \25F9";
+}
+
+._720kb-datepicker-calendar-body {
+  width: 200px;
+  margin: 2%;
+  text-align: center;
+}
+
+._720kb-datepicker-calendar-day {
+  cursor: pointer;
+  font-size: 12.5px;
+  color: #ffffff;
+  width: 12.2%;
+  margin: 5px 1%;
+  padding: 1.5% 0;
+  float: left;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+}
+
+._720kb-datepicker-calendar-day:hover,
+._720kb-datepicker-calendar-day._720kb-datepicker-active {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+._720kb-datepicker-calendar-header a,
+._720kb-datepicker-calendar-header a:hover {
+  text-decoration: none;
+  padding: 3% 9% 4% 9%;
+  /*font-size: 13.5px;*/
+  font: 14px "Lato Regular", sans-serif;
+  color: #ffffff;
+  font-weight: bold;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+._720kb-datepicker-calendar-header a:hover {
+  color: rgba(0, 0, 0, 0.9);
+  background: rgba(255, 255, 255, 0.45);
+}
+
+._720kb-datepicker-calendar-month {
+  color: #fff;
+}
+
+._720kb-datepicker-calendar-month span {
+  /*font-size: 13px;*/
+  font: 14px "Lato Regular", sans-serif;
+  color: #fff;
+}
+
+._720kb-datepicker-calendar-month a span  i {
+  font-style: normal;
+  font-size: 15px;
+}
+
+._720kb-datepicker-calendar-month a,
+._720kb-datepicker-calendar-month a:hover {
+  padding: 3px;
+  margin-left: 1%;
+}
+
+._720kb-datepicker-calendar-years-pagination {
+  padding: 2% 0 0 0;
+  float: left;
+  clear: right;
+  width: 100%;
+}
+
+._720kb-datepicker-calendar-years-pagination a,
+._720kb-datepicker-calendar-years-pagination a:hover {
+  font-size: 12px;
+  padding: 0 7px;
+  font-weight: normal;
+  margin: 3px 1% 0 1%;
+  line-height: 20px;
+  display: inline-block;
+}
+
+._720kb-datepicker-calendar-years-pagination a._720kb-datepicker-active {
+  color: rgba(0, 0, 0, 0.9);
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+._720kb-datepicker-calendar-years-pagination-pages a,
+._720kb-datepicker-calendar-years-pagination-pages a:hover {
+  padding: 5px 10px;
+}
+
+._720kb-datepicker-calendar-days-header {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 2% 0 2%;
+  background: #8bffca;
+  border-bottom: 1px solid rgba(0,0,0,0.02);
+}
+
+._720kb-datepicker-calendar-days-header div {
+  width: 13.2%;
+  font-weight: 500;
+  /*font-size: 11.5px;*/
+  font: 12px "Lato Regular", sans-serif;
+  padding: 10px 0.5%;
+  float: left;
+  text-align: center;
+  color: rgba(0,0,0,0.7);
+}
+
+._720kb-datepicker-calendar-days
+._720kb-datepicker-default-button {
+  font-size: 18.5px;
+  position: relative;
+  bottom: -0.5px;
+}
+
+._720kb-datepicker-default-button {
+  padding: 0 4.5px;
+}
+
+._720kb-datepicker-calendar-header-middle._720kb-datepicker-mobile-item {
+  width: 95%;
+  float: none;
+  margin: 0 auto;
+}
+
+._720kb-datepicker-item-hidden {
+  visibility: hidden;
+}
+
+._720kb-datepicker-calendar-day._720kb-datepicker-disabled,
+._720kb-datepicker-calendar-day._720kb-datepicker-disabled:hover,
+._720kb-datepicker-calendar-years-pagination a._720kb-datepicker-disabled,
+._720kb-datepicker-calendar-years-pagination a._720kb-datepicker-disabled:hover,
+._720kb-datepicker-calendar-years-pagination a._720kb-datepicker-active._720kb-datepicker-disabled,
+._720kb-datepicker-calendar-years-pagination a._720kb-datepicker-active._720kb-datepicker-disabled:hover {
+  color: rgba(0,0,0,0.2);
+  background: rgba(25,2,0,0.02);
+  cursor: default;
+}
+
+/*options*/
+
+[datepicker-toggle="false"] > ._720kb-datepicker-calendar,
+._720kb-datepicker-calendar.no-toggle {
+  visibility: visible;
+}
+.chart-legend,
+.bar-legend,
+.line-legend,
+.pie-legend,
+.radar-legend,
+.polararea-legend,
+.doughnut-legend {
+  list-style-type: none;
+  margin-top: 50px;
+  text-align: center;
+  /* NOTE: Browsers automatically add 40px of padding-left to all lists, so we should offset that, otherwise the legend is off-center */
+  -webkit-padding-start: 0;
+  /* Webkit */
+  -moz-padding-start: 0;
+  /* Mozilla */
+  padding-left: 0;
+  /* IE (handles all cases, really, but we should also include the vendor-specific properties just to be safe) */
+}
+
+.chart-legend li,
+.bar-legend li,
+.line-legend li,
+.pie-legend li,
+.radar-legend li,
+.polararea-legend li,
+.doughnut-legend li {
+  display: inline-block;
+  white-space: nowrap;
+  position: relative;
+  margin-bottom: 4px;
+  border-radius: 5px;
+  padding: 2px 8px 2px 28px;
+  /*font-size: smaller;*/
+  cursor: default;
+  font: 14px "Lato Regular", sans-serif;
+  color: white;
+  text-transform: uppercase;
+}
+
+.chart-legend li span,
+.bar-legend li span,
+.line-legend li span,
+.pie-legend li span,
+.radar-legend li span,
+.polararea-legend li span,
+.doughnut-legend li span {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+}

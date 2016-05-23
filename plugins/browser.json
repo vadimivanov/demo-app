@@ -1,0 +1,17 @@
+{
+    "prepare_queue": {
+        "installed": [
+            {
+                "plugin": "cordova-plugin-whitelist",
+                "vars": {},
+                "topLevel": true
+            }
+        ],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {},
+    "dependent_plugins": {}
+}

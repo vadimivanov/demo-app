@@ -1,8 +1,10 @@
+var NODE_ENV = process.env.NODE_ENV || 'development';
+
 var path = require('path'),
     webpack = require("webpack"),
-    libPath = path.join(__dirname, 'lib'),
-    buildPath = path.join(__dirname, 'build'),
-    appPath = path.join(__dirname, 'source'),
+    cordovaPath = path.join(__dirname, 'www'),
+    buildPath = path.join(__dirname, 'dev/build'),
+    appPath = path.join(__dirname, 'dev/source'),
     pkg = require('./package.json'),
     HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -13,7 +15,7 @@ var config = {
         path.join(appPath, 'index.css')
     ],
     output: {
-        path: path.join(buildPath),
+        path: NODE_ENV == 'development' ? path.join(buildPath) : path.join(cordovaPath),
         filename: 'bundle.js'
     },
     module: {
@@ -22,16 +24,9 @@ var config = {
             loader: 'ng-cache-loader',
             exclude: /node_modules/
 
-        // },
-        //     {
-        //     test: /\.(png|jpg)$/,
-        //     loader: 'file?name=img/[name].[ext]' // inline base64 URLs for <=10kb images, direct URLs for the rest
         }, {
             test: /\.css$/,
             loader: "style-loader!css-loader"
-        // }, {
-        //     test: /\.scss$/,
-        //     loader: "style!css!autoprefixer!sass"
         }, {
             test: /\.js$/,
             exclude: /(node_modules)/,
