@@ -21,7 +21,9 @@ class ResultDirective {
                 $scope.pageNumber += 1;
                 _dataService.search({
                     name: _dataService.getLocation(),
-                    page: $scope.pageNumber});
+                    page: $scope.pageNumber,
+                    isHistory: true
+                });
                 
                 _PubSub.publish('spinner', true);
                 $scope.render();

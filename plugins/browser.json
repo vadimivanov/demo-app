@@ -5,6 +5,11 @@
                 "plugin": "cordova-plugin-whitelist",
                 "vars": {},
                 "topLevel": true
+            },
+            {
+                "plugin": "cordova-plugin-splashscreen",
+                "vars": {},
+                "topLevel": true
             }
         ],
         "uninstalled": []

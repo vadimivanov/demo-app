@@ -5,6 +5,5 @@ run app
 
 npm install
 npm run dev - run webpack-dev-server for development
-npm run build - create files in www folder for cordova build
-
+npm run build - create files in www folder for cordova
 

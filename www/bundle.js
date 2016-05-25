@@ -71580,8 +71580,8 @@
 	    $stateProvider.state('main', {
 	        template: '<ui-view />'
 	    }).state('home', {
-	        // url: '/',
-	        template: '<header-directive></header-directive>'
+	        url: '/',
+	        template: '<search-directive></search-directive>'
 	    }).state('search', {
 	        url: '/search',
 	        template: '<search-directive></search-directive>'
@@ -71799,7 +71799,9 @@
 	            $scope.pageNumber += 1;
 	            _dataService.search({
 	                name: _dataService.getLocation(),
-	                page: $scope.pageNumber });
+	                page: $scope.pageNumber,
+	                isHistory: true
+	            });
 
 	            _PubSub.publish('spinner', true);
 	            $scope.render();
@@ -71995,7 +71997,7 @@
 	                    }];
 	                    self.setStorage(searchResults, 'searchResults');
 	                };
-
+	                console.log('saveSearchResults', data.isHistory);
 	                if (!data.isHistory) {
 	                    saveSearchResults(response.data.response);
 	                }

@@ -38,7 +38,7 @@ class DataService {
                     }];
                     self.setStorage(searchResults, 'searchResults');
                 };
-                
+                console.log('saveSearchResults', data.isHistory);
                 if (!data.isHistory) {
                     saveSearchResults(response.data.response);
                 }

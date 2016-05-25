@@ -1,12 +1,23 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.cordova.hellocordova" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="io.cordova.propertycross" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <preference name="loglevel" value="DEBUG" />
     <feature name="Whitelist">
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+        <param name="onload" value="true" />
+    </feature>
+    <preference name="android-minSdkVersion" value="19" />
     <allow-intent href="market:*" />
-    <name>HelloCordova</name>
+    <icon density="ldpi" src="resources/icon/android/36x36.png" />
+    <icon density="mdpi" src="resources/icon/android/48x48.png" />
+    <icon density="hdpi" src="resources/icon/android/96x96.png" />
+    <splash density="ldpi" src="resources/screen/android/320x480.png" />
+    <splash density="mdpi" src="resources/screen/android/480x800.png" />
+    <splash density="xhdpi" src="resources/screen/android/720x1280.png" />
+    <name>PropertyCross</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
     </description>
@@ -21,4 +32,5 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <preference name="Orientation" value="portrait" />
 </widget>

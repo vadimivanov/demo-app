@@ -8,10 +8,9 @@ function routing($stateProvider, $urlRouterProvider) {
         .state('main', {
             template: '<ui-view />'
         })
-
         .state('home', {
-            // url: '/',
-            template: '<header-directive></header-directive>'
+            url: '/',
+            template: '<search-directive></search-directive>'
         })
         .state('search', {
             url: '/search',
